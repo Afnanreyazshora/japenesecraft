@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新作 | New Arrivals - Japanese Craft Gallery</title>
+    <!-- Bootstrap 4 CSS -->
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #2C3E50;
+            --secondary-color: #F8F9FA;
+            --accent-color: #D5A353;
+            --text-color: #333333;
+            --bg-light: #F8F9FA;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-color);
+        }
+
+        /* Navigation Styles */
+        .navbar {
+            padding: 1rem 0;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav-link {
+            color: var(--primary-color) !important;
+            font-weight: 500;
+        }
+
+        /* Header Styles */
+        .page-header {
+            padding: 4rem 0;
+            background-color: var(--secondary-color);
+        }
+
+        /* Filter Styles */
+        .filter-section {
+            border-bottom: 1px solid #dee2e6;
+            padding: 1rem 0;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            margin-right: 1rem;
+            border: 1px solid var(--primary-color);
+            background: white;
+            color: var(--primary-color);
+            border-radius: 0;
+        }
+
+        /* Artwork Grid Styles */
+        .artwork-card {
+            margin-bottom: 2rem;
+            border: none;
+        }
+
+        .artwork-card img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        .artwork-card:hover img {
+            opacity: 0.9;
+        }
+
+        .artwork-info {
+            padding: 1rem 0;
+        }
+
+        .artwork-price {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .prints-price {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Pagination Styles */
+        .load-more-btn {
+            padding: 1rem 3rem;
+            border: 2px solid var(--primary-color);
+            background: white;
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .load-more-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+   <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">和工芸</a>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Crafts</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Artisans</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Shop</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+    </ul>
+    <ul class="navbar-nav align-items-center">
+      <li class="nav-item"><a class="nav-link" href="login.html">ログイン | Login</a></li>
+      <li class="nav-item"><a class="nav-link btn btn-outline-dark px-3 mx-2" href="login.html">新規登録 | Sign Up</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">EN | JP</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+    <!-- Page Header -->
+    <section class="page-header mt-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 mb-3">新作 | New Arrivals</h1>
+                    <p class="lead">Discover our latest collection of masterfully crafted Japanese artworks, each piece telling a unique story of tradition and innovation.</p>
+                </div>
+                <div class="col-lg-4 text-lg-right">
+                    <p class="mb-0">Curated by</p>
+                    <h5>田中 美咲 | Misaki Tanaka</h5>
+                    <p class="text-muted">Master Curator, Traditional Crafts</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="collapse navbar-collapse" id="filterNav">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="categoryDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">工芸品 | Category</a>
+                            <div class="dropdown-menu" aria-labelledby="categoryDropdown">
+                                <a class="dropdown-item" href="#">陶芸 | Ceramics</a>
+                                <a class="dropdown-item" href="#">織物 | Textiles</a>
+                                <a class="dropdown-item" href="#">木工 | Woodwork</a>
+                                <a class="dropdown-item" href="#">漆器 | Lacquerware</a>
+                                <a class="dropdown-item" href="#">金工 | Metalwork</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="priceDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">価格 | Price</a>
+                            <div class="dropdown-menu" aria-labelledby="priceDropdown">
+                                <a class="dropdown-item" href="#">Under ¥50,000</a>
+                                <a class="dropdown-item" href="#">¥50,000 - ¥100,000</a>
+                                <a class="dropdown-item" href="#">¥100,000 - ¥300,000</a>
+                                <a class="dropdown-item" href="#">Over ¥300,000</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="regionDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">産地 | Region</a>
+                            <div class="dropdown-menu" aria-labelledby="regionDropdown">
+                                <a class="dropdown-item" href="#">京都 | Kyoto</a>
+                                <a class="dropdown-item" href="#">金沢 | Kanazawa</a>
+                                <a class="dropdown-item" href="#">有田 | Arita</a>
+                                <a class="dropdown-item" href="#">輪島 | Wajima</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Artwork Grid -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Craft Item 1 -->
+                <div class="col-md-4">
+                    <div class="artwork-card">
+                        <img src="images/a5f287bf2c6bab13ef6015cbfa2179ce.jpg" alt="Ceramic Tea Bowl">
+                        <div class="artwork-info">
+                          <h5 class="mb-1">青磁茶碗 | Celadon Tea Bowl</h5>
+                            <p class="text-muted mb-2">陶芸 | Ceramics, 12 x H8 cm</p>
+                            <p class="mb-2">京都 | Kyoto</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="artwork-price">¥75,000</span>
+                                <span class="artist-name">山田 健一</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Craft Item 2 -->
+                <div class="col-md-4">
+                    <div class="artwork-card">
+                        <img src="images/H22021-L317995287.jpg" alt="Untitled">
+                        <div class="artwork-info">
+                          <h5 class="mb-1"> 青銅花瓶 | Bronze Flower Vase</h5>
+                            <p class="text-muted mb-2"> 鋳金 Metalwork ,&nbsp;H25 x W10 cm</p>
+                            <p class="mb-2">東京 (Tokyo)</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="artwork-price">¥120,000</span>
+                            </div>
+                      </div>
+                  </div>
+                </div>
+
+                <!-- Artwork 3 -->
+                <div class="col-md-4">
+                    <div class="artwork-card">
+                        <img src="images/5da1c4564af6bdce0c6c90aaa616b2c8.jpg" alt="Wooden Box">
+                        <div class="artwork-info">
+                          <h5 class="mb-1">寄木細工箱 | Marquetry Box</h5>
+                            <p class="text-muted mb-2">木工 | Woodwork, 24 x 18 x 12 cm</p>
+                            <p class="mb-2">箱根 | Hakone</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="artwork-price">¥120,000</span>
+                                <span class="artist-name">田中 匠</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Craft Item 4 -->
+                <div class="col-md-4">
+                    <div class="artwork-card">
+                        <img src="images/d550762339b0938fc924a96db12bb27d.jpg" alt="Lacquer Bowl">
+                        <div class="artwork-info">
+                          <h5 class="mb-1">蒔絵椀 | Maki-e Bowl</h5>
+                            <p class="text-muted mb-2">漆器 | Lacquerware, ⌀15 x H10 cm</p>
+                            <p class="mb-2">輪島 | Wajima</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="artwork-price">¥180,000</span>
+                                <span class="artist-name">鈴木 和子</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Craft Item 5 -->
+                <div class="col-md-4">
+                    <div class="artwork-card">
+                        <img src="images/Screenshot 2025-07-14 103409.png" alt="Metal Vase">
+                        <div class="artwork-info">
+                          <h5 class="mb-1">銅花瓶 | Copper Vase</h5>
+                            <p class="text-muted mb-2">金工 | Metalwork, H30 x ⌀15 cm</p>
+                            <p class="mb-2">高岡 | Takaoka</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="artwork-price">¥150,000</span>
+                                <span class="artist-name">中村 光</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Craft Item 6 -->
+                <div class="col-md-4">
+                    <div class="artwork-card">
+                        <img src="images/69bf939428d6d92add45cf4cd4d13e96.jpg" alt="Bamboo Basket">
+                        <div class="artwork-info">
+                          <h5 class="mb-1">竹編み花籠 | Bamboo Flower Basket</h5>
+                            <p class="text-muted mb-2">竹工芸 | Bamboo Craft, H25 x ⌀20 cm</p>
+                            <p class="mb-2">別府 | Beppu</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="artwork-price">¥95,000</span>
+                                <span class="artist-name">木下 竹翠</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center mt-5">
+                <button class="load-more-btn">Load More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+<footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">和工芸</h5>
+                    <p class="small">Celebrating and preserving the timeless beauty of Japanese craftsmanship.</p>
+                    <div class="mt-4">
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h6 class="text-uppercase mb-4">Explore</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white">About</a></li>
+                        <li class="mb-2"><a href="#" class="text-white">Crafts</a></li>
+                        <li class="mb-2"><a href="#" class="text-white">Artisans</a></li>
+                        <li class="mb-2"><a href="#" class="text-white">Shop</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h6 class="text-uppercase mb-4">Contact</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">〒123-4567</li>
+                        <li class="mb-2">Tokyo, Ginza 1-1-1</li>
+                        <li class="mb-2">Craft Gallery</li>
+                        <li class="mb-2">Tel: 03-1234-5678</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="text-uppercase mb-4">Hours</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">Tuesday - Sunday</li>
+                        <li class="mb-2">11:00 - 19:00</li>
+                        <li class="mb-2">Closed on Mondays</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap-4.4.1.js"></script>
+</body>
+</html>
